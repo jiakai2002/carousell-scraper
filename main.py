@@ -1,6 +1,6 @@
 import csv
+import subprocess
 
-import pandas as pd
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
@@ -28,7 +28,8 @@ def check_exists_by_xpath(xp):
 for i in range(0, count):
     if check_exists_by_xpath(xp):
         driver.find_element(By.XPATH, xp).click()
-
+    else:
+        break
 
 HEADERS = {
     "User Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15",
@@ -65,8 +66,6 @@ for item in items:
     if item_data:
         data.append(item_data)
         i += 1
-print(i, "new listings added to data.csv")
-
 header = ["Name", "Date", "Title", "Price", "Condition", "Link"]
 
 with open("data.csv", "w", newline="", encoding="UTF8") as f:
@@ -74,6 +73,9 @@ with open("data.csv", "w", newline="", encoding="UTF8") as f:
     writer.writerow(header)
     for d in data:
         writer.writerow(d)
+driver.quit()
 
-df = pd.read_csv(r"~/Documents/Projects/scraper/data.csv")
-print(df)
+print("Completed!", i, "new listings added to data.csv")
+if input("Open data.csv?(y/n): ") == "y":
+    file_name = "data.csv"
+    subprocess.call(["open", file_name])
