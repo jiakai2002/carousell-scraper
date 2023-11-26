@@ -1,38 +1,10 @@
+import csv
+
 from bs4 import BeautifulSoup
 from selenium import webdriver
 
-item = input("Enter item you are searching for: ")
-item = item.replace(" ", "%20") + "/?"
-price = (
-    "&price_start="
-    + input("Enter min price: ")
-    + "&price_end="
-    + input("Enter max price: ")
-)
-inp = input(
-    "Enter condition:(1=brandnew, 2=likenew, 3=lightlyused, 4=wellused, 5=heavilyused): "
-)
-if inp == "1":
-    condition = "layered_condition=3&"
-elif inp == "2":
-    condition = "layered_condition=3%2C4&"
-elif inp == "3":
-    condition = "layered_condition=3%2C4%2C7&"
-elif inp == "4":
-    condition = "layered_condition=3%2C4%2C7%2C5&"
-else:
-    condition = "layered_condition=3%2C4%2C7%2C5%2C6&"
-
-inp = input("Choose sort by(1=best match, 2 = price, 3 = recent): ")
-if inp == "1":
-    sortby = "&sort_by=1"
-elif inp == "3":
-    sortby = "&sort_by=3"
-else:
-    sortby = "&sort_by=4"
-
 driver = webdriver.Chrome()
-URL = "https://carousell.sg/search/" + item + condition + price + sortby
+URL = "https://carousell.sg/search/macbook/"
 driver.get(URL)
 
 HEADERS = {
@@ -43,21 +15,42 @@ HEADERS = {
 soup = BeautifulSoup(driver.page_source, "html.parser")
 
 
-def selector(tag):
-    return tag.has_attr("href") and "browse_type" in tag.get("href")
+def select_item(tag):
+    return tag.has_attr("data-testid") and "listing-card" in tag.get("data-testid")
+
+
+def select_link(tag):
+    return tag.has_attr("href") and "referrer_browse_type" in tag.get("href")
 
 
 i = 0
-links = soup.find_all(selector)
-for link in links:
-    tags = link.find_all()
-    if len(tags) == 8:
-        i += 1
-        print(i, ")", tags[3].string)
-        print(tags[5].string)
-        print(tags[6].string)
-    elif len(tags) == 10:
-        i += 1
-        print(i, ")", tags[5].string)
-        print(tags[7].string)
-        print(tags[8].string)
+items = soup.find_all(select_item)
+data = []
+for item in items:
+    tags = item.find_all("p")
+    item_data = []
+    # add data to item_data
+    for tag in tags:
+        s = tag.text
+        if s and s != "Free delivery" and s != "Buyer Protection":
+            item_data.append(s)
+    tagL = item.find(select_link)
+    # add link to item_data
+    if tagL:
+        link = "https://carousell.sg" + tagL.get("href")
+        item_data.append(link)
+    if item_data:
+        data.append(item_data)
+print(data)
+
+
+header = ["Name", "Date", "Title", "Price", "Condition", "Link"]
+
+with open("data.csv", "w", newline="", encoding="UTF8" as f)
+    writer = csv.writer(f)
+    writer.writerow(header)
+    for d in data:
+        writer.writerow(d)
+
+
+
