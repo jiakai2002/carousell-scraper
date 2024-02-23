@@ -1,5 +1,6 @@
 import csv
 import subprocess
+from datetime import datetime
 
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -10,7 +11,7 @@ product = input("Enter Product: ").replace(" ", "%20") + "/?"
 price = "&price_start=" + input("Enter Min Price: ")
 count = int(int(input("Enter number of listings: ")) / 40)
 driver = webdriver.Chrome()
-URL = "https://carousell.sg/search/" + product + price
+URL = "https://id.carousell.com/search/" + product + price
 driver.get(URL)
 
 xp = '//*[@id="main"]/div[2]/div/section[3]/div[1]/div/button'
@@ -61,21 +62,27 @@ for item in items:
     tagL = item.find(select_link)
     # add link to item_data
     if tagL:
-        link = "https://carousell.sg" + tagL.get("href")
+        link = "https://id.carousell.com" + tagL.get("href")
         item_data.append(link)
     if item_data:
         data.append(item_data)
         i += 1
 header = ["Name", "Date", "Title", "Price", "Condition", "Link"]
 
-with open("data.csv", "w", newline="", encoding="UTF8") as f:
-    writer = csv.writer(f)
+# Format tanggal dan waktu saat ini
+current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
+
+# Nama file CSV sesuai dengan tanggal dan waktu saat ini
+csv_file_name = f"data_{current_datetime}.csv"
+
+# Menulis file CSV dengan delimiter titik koma
+with open(csv_file_name, "w", newline="", encoding="UTF8") as f:
+    writer = csv.writer(f, delimiter=';')
     writer.writerow(header)
     for d in data:
         writer.writerow(d)
 driver.quit()
 
-print("Completed!", i, "new listings added to data.csv")
-if input("Open data.csv?(y/n): ") == "y":
-    file_name = "data.csv"
-    subprocess.call(["open", file_name])
+print("Completed!", i, "new listings added to", csv_file_name)
+if input("Open CSV file?(y/n): ") == "y":
+    subprocess.call(["start", "excel", csv_file_name], shell=True)
