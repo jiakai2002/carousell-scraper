@@ -69,13 +69,10 @@ for item in items:
         i += 1
 header = ["Name", "Date", "Title", "Price", "Condition", "Link"]
 
-# Format tanggal dan waktu saat ini
 current_datetime = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-# Nama file CSV sesuai dengan tanggal dan waktu saat ini
 csv_file_name = f"data_{current_datetime}.csv"
 
-# Menulis file CSV dengan delimiter titik koma
 with open(csv_file_name, "w", newline="", encoding="UTF8") as f:
     writer = csv.writer(f, delimiter=';')
     writer.writerow(header)
