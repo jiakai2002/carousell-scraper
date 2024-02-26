@@ -12,18 +12,19 @@
    ```
 3. **Install Chrome:**
    
-   Install the full-blown google-chrome browser  
+   Install the full-blown google-chrome browser
+   
    OR  
    ```
    brew tap homebrew/cask && brew cask install chromedriver
    ```
-4. **Run the Program:**
+5. **Run the Program:**
    
    Execute the program using Python and input product name, min price, no. of listings  
    ```
    python main.py
    ```  
-5. **Open the CSV:**
+6. **Open the CSV:**
    
    If you want to open the CSV file with Excel, run the following command in the terminal or command prompt:  
    ```
