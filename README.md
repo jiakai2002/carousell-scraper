@@ -1,5 +1,3 @@
-Here are the step-by-step instructions to run your Carousell scraping program:
-
 1. **Git Clone:**  
    ```
    git clone https://github.com/jiakai2002/Carousell-scraper
