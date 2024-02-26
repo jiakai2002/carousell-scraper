@@ -7,6 +7,7 @@ Here are the step-by-step instructions to run your Carousell scraping program:
    ```
      
 2. **Install packages:**
+awd
    ```
    pip3 install selenium
    pip3 install beautifulsoup4
