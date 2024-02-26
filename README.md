@@ -13,20 +13,20 @@ Here are the step-by-step instructions to run your Carousell scraping program:
    ```
      
 4. **Install Chrome:**  
-   - Either: Install the full-blown google-chrome browser
+   Either: Install the full-blown google-chrome browser  
    OR
    ```
    brew tap homebrew/cask && brew cask install chromedriver
    ```
 5. **Run the Program:**  
-   - Execute the program using Python:
+   Execute the program using Python:
    ```
    python main.py
    ```
    Input the product name, minimum price, and the desired number of listings.
 
 6. **Open the CSV:**  
-   - If you want to open the CSV file with Excel, run the following command in the terminal or command prompt:
+   If you want to open the CSV file with Excel, run the following command in the terminal or command prompt:
    ```
    start excel filename.csv
    ```
