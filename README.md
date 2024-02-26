@@ -1,18 +1,17 @@
 Here are the step-by-step instructions to run your Carousell scraping program:
 
 1. **Git Clone:**
-   - Open the terminal or command prompt.
-   - Clone the repository locally:
-     ```bash
-     git clone https://github.com/kerb0y/Carousell-scraper
      ```
-
-2. **Navigate Directory:**
-   - Navigate to the repository directory:
-     ```bash
+     git clone https://github.com/jiakai2002/Carousell-scraper
      cd Carousell-scraper
      ```
-
+     
+2. **Install packages:**
+     ```
+     pip3 install selenium
+     pip3 install beautifulsoup4
+     ```
+     
 3. **Download and Prepare ChromeDriver:**
    - Visit the [ChromeDriver Download Page](https://sites.google.com/chromium.org/driver/) and download the ChromeDriver version compatible with your Chrome browser.
    - Extract the ChromeDriver file into the repository directory.
@@ -24,13 +23,8 @@ Here are the step-by-step instructions to run your Carousell scraping program:
      ```
    - Follow the prompts to input the product information, minimum price, and the desired number of listings.
 
-5. **Check the Results:**
-   - After the program completes, the scraping results will be saved in a CSV file with a timestamp in its name.
-
-6. **Open the CSV:**
+5. **Open the CSV:**
    - If you want to open the CSV file with Excel, run the following command in the terminal or command prompt:
      ```bash
      start excel filename.csv
      ```
-
-By following these steps, you should be able to easily run your Carousell scraping program.
