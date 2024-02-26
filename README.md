@@ -12,18 +12,22 @@ Here are the step-by-step instructions to run your Carousell scraping program:
      pip3 install beautifulsoup4
      ```
      
-3. **Download and Prepare ChromeDriver:**
-   - Visit the [ChromeDriver Download Page](https://sites.google.com/chromium.org/driver/) and download the ChromeDriver version compatible with your Chrome browser.
-   - Extract the ChromeDriver file into the repository directory.
-
-4. **Run the Program:**
+3. **Install Chrome:**
+   Either:
+   1. Install the full-blown google-chrome browser
+     OR
+   2.
+     '''
+     brew tap homebrew/cask && brew cask install chromedriver
+     '''
+5. **Run the Program:**
    - Execute the program using Python:
      ```bash
      python main.py
      ```
    - Follow the prompts to input the product information, minimum price, and the desired number of listings.
 
-5. **Open the CSV:**
+6. **Open the CSV:**
    - If you want to open the CSV file with Excel, run the following command in the terminal or command prompt:
      ```bash
      start excel filename.csv
