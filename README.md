@@ -14,9 +14,8 @@ Here are the step-by-step instructions to run your Carousell scraping program:
      
 3. **Install Chrome:**
    Either:
-   1. Install the full-blown google-chrome browser
+     Install the full-blown google-chrome browser
      OR
-   2.
      ```
      brew tap homebrew/cask && brew cask install chromedriver
      ```
