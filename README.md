@@ -1,13 +1,12 @@
 # Carousell Web Scraper
 
-<img width="705" alt="Screenshot 2024-10-07 at 1 49 56 AM" src="https://github.com/user-attachments/assets/f25bc628-43b7-4770-b03a-cdf1c3de8385">
-
-<img width="1003" alt="Screenshot 2024-10-07 at 1 52 00 AM" src="https://github.com/user-attachments/assets/2a3645fa-3db7-454a-8847-fbc3a1812fe1">
-
-
 ## Overview
 
 This Carousell Web Scraper is a tool designed to automate the process of gathering product listings from the Carousell marketplace. The scraper generates a CSV file containing essential information about each listing, including seller details, listing date, product title, price, condition, and a link to buy the item.
+
+<img width="705" alt="Screenshot 2024-10-07 at 1 49 56 AM" src="https://github.com/user-attachments/assets/f25bc628-43b7-4770-b03a-cdf1c3de8385">
+
+<img width="1003" alt="Screenshot 2024-10-07 at 1 52 00 AM" src="https://github.com/user-attachments/assets/2a3645fa-3db7-454a-8847-fbc3a1812fe1">
 
 ## Features
 
