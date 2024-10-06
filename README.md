@@ -84,4 +84,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 
 - Thanks to the Carousell community for providing a platform for buying and selling items.
-- Special thanks to the libraries and tools that made this project possible.
