@@ -2,7 +2,8 @@
 
 <img width="705" alt="Screenshot 2024-10-07 at 1 49 56 AM" src="https://github.com/user-attachments/assets/f25bc628-43b7-4770-b03a-cdf1c3de8385">
 
-<img width="1393" alt="Screenshot 2024-10-07 at 1 49 16 AM" src="https://github.com/user-attachments/assets/d80336ec-d0f3-487f-87f7-1312e711f914">
+<img width="1007" alt="Screenshot 2024-10-07 at 1 51 14 AM" src="https://github.com/user-attachments/assets/7db33d06-b867-4b6b-9ea5-06594bcc8579">
+
 
 ## Overview
 
